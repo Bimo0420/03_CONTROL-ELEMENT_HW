@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,6 +103,31 @@ namespace CONTROL_ELEMENT
             {
                 textBox.Foreground = Brushes.Red;
             }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)   //открыть
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
+            if (openFileDialog.ShowDialog()==true) //вызываем диалоговое окно, ок = true, отмена = false
+            {
+                textBox.Text = File.ReadAllText(openFileDialog.FileName); //получаем содержимое из файла, кот выбрал пользователь и записываем в textbox
+            } 
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e) //сохранить
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter= "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
+            if (saveFileDialog.ShowDialog()==true)
+            {
+                File.WriteAllText(saveFileDialog.FileName, textBox.Text);
+            }
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
