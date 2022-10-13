@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:CONTROL_ELEMENT"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>    <!--Подключение словаря-->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ComboboxSource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
