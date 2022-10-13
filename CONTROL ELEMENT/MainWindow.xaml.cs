@@ -125,7 +125,7 @@ namespace CONTROL_ELEMENT
             }
         }
 
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e) //закрыть
         {
             Application.Current.Shutdown();
         }
